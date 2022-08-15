@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="PYTHON_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/学习课程/chap14/ce" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/实用工具/操作xml/XML_CCC" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/爬虫" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/venv/Lib" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/实用工具/完成工具" isTestSource="false" />
+    </content>
+    <orderEntry type="jdk" jdkName="Python 3.10" jdkType="Python SDK" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="自动修改" />
+    <orderEntry type="module" module-name="2.0打印软件2022年1月" />
+    <orderEntry type="module" module-name="SoftConfig" />
+  </component>
+</module>
