@@ -49,11 +49,11 @@ class main(object):
          pass
      #翻译
      def translate(self,text1):
-         sleep(0.1)
+         sleep(0.05)
          appid = '20220814001306572'
          appkey = '43ns40APSGjNedq4nvAg'
-         from_lang = 'en'
-         to_lang = 'pt'
+         from_lang = 'zh'
+         to_lang = 'ru'
          query = text1
 
          def make_md5(s, encoding='utf-8'):
@@ -89,9 +89,9 @@ class main(object):
              for num1 in range(1,22):
                  for num2 in range(0,len(root[num1])):
                      self.add_1(num1,num2)
-                     root[num1][num2][2].set('id','Fn')
-                     translation_date=self.translate(root[num1][num2][1].attrib['text'])
-                     root[num1][num2][2].set('text', translation_date)
+                     root[num1][num2][4].set('id','ru')
+                     translation_date=self.translate(root[num1][num2][0].attrib['text'])
+                     root[num1][num2][4].set('text', translation_date)
                      print('完成翻译：',translation_date)
  # 追加头文件
 

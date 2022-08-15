@@ -3,4 +3,4 @@
 # 开发时间:2022/8/15  20:28
 import time
 if __name__ == '__main__':
-    time.sleep(33)
+    time.sleep(3)
