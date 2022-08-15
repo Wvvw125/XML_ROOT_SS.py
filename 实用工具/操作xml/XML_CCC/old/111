@@ -1,0 +1,5 @@
+            if root[8][25].attrib[nname] == 'nHeadsPos':
+            else:
+                print(root[8][25].attrib[aa], '配置错误，更新后重试')
+                sleep(5)
+                pass

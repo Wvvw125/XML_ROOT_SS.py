@@ -1,0 +1,5 @@
+
+        print(self.pushButton_3.sizeHint())#  sizeHint期望尺寸 ， 对大多数控件来说 sizeHint的值是只读的
+        print(self.pushButton_3.sizeHint().width())
+        print(self.pushButton_3.sizeHint().height())
+        print(self.pushButton_3.minimumSizeHint()) #最小期望尺寸

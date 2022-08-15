@@ -1,0 +1,8 @@
+Preferences->Version Control->GitHub 窗口，如下图这样的，Host不变，login和pwd自己填写，填好之后右边有一个Test按钮，测试是否正确。
+3.Pycharm中设置Git位置
+4.在GitHub账号中添加本机的SSH keys
+在Git Bushl输入以下命令, 生成ssh keys ssh-keygen -t rsa -C xyz@qq.com（注册时的邮箱） cd ~/.ssh ls ls之后可以看到 一个文件 id_ras.pub，把它的内容复制，
+用于在github setttings->ssh keys出增加新的key。 Title随便起，key值粘贴刚刚复制的内容。
+5.PyCharm 向Git更新代码 1.创建新的项目 如下面图里面的提示，VCS->Import into Version Control->Share Project on GitHib,
+ 选择之后将会将现有的项目复制到GitHub上，在其上创建新的repositories。
+2.提交更新后的代码 在PyCharm的工具栏有一个vcs绿色箭头向上的图标，点击之后可以commit修改的代码。 或者快捷键 command+k ，选择要commit的文件，确定就ok了。
