@@ -48,12 +48,12 @@ class main(object):
      def __init__(self):
          pass
      #翻译
-     def translate(self,text1):
+     def translate(self,text1,Tolang):
          sleep(0.05)
          appid = '20220814001306572'
          appkey = '43ns40APSGjNedq4nvAg'
          from_lang = 'zh'
-         to_lang = 'ru'
+         to_lang = Tolang
          query = text1
 
          def make_md5(s, encoding='utf-8'):
@@ -85,14 +85,18 @@ class main(object):
              root[x][y].append(b)
          #    root[0][].set('vale',"4")
 
-     def add_content(self):
+     def add_content(self,wanttolang):
              for num1 in range(1,22):
                  for num2 in range(0,len(root[num1])):
                      self.add_1(num1,num2)
-                     root[num1][num2][4].set('id','ru')
-                     translation_date=self.translate(root[num1][num2][0].attrib['text'])
-                     root[num1][num2][4].set('text', translation_date)
+                     num3=len(root[num1][num2])-1
+                     root[num1][num2][num3].set('id',wanttolang)
+                     translation_date=self.translate(root[num1][num2][0].attrib['text'],wanttolang)
+                     root[num1][num2][num3].set('text', translation_date)
                      print('完成翻译：',translation_date)
+     def pprint(self):
+         pass
+       #  print(root[1][0].__len__())
  # 追加头文件
 
  def update_xml(self):
@@ -113,6 +117,7 @@ class setset(object):
     #    xml_file = Root[2]  # #格式化数据 #数据化   #文件名
     print("===========================开始修改=======================================")
     Run.add_langue().add_content() #翻译
+    #Run.add_langue().pprint()
     print("++++++++++++++++++++++++++++以上为默认设置+++++++++++++++++++++++++++++++++")
 
     print("============================置零修改结束======================================")
