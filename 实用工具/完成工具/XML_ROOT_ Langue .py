@@ -116,7 +116,7 @@ class setset(object):
     #    tree = Root[1]
     #    xml_file = Root[2]  # #格式化数据 #数据化   #文件名
     print("===========================开始修改=======================================")
-    Run.add_langue().add_content() #翻译
+    Run.add_langue().add_content('pt') #翻译
     #Run.add_langue().pprint()
     print("++++++++++++++++++++++++++++以上为默认设置+++++++++++++++++++++++++++++++++")
 

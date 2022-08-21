@@ -10,7 +10,7 @@ PNG2 = 'checkdietry.png'
 PNG3 = 'checked.png'       #指定替换文件
 import os
 import shutil
-path_0='F:\售后体系库\……【客户软件库】……\V2.0平台\【版本更新列表】\发布-1.0.0.73-2' # input修改目录
+path_0='F:\售后体系库\……【客户软件库】……\V2.0平台\【版本更新列表】\发布-1.0.0.73-3' # input修改目录
 class main():
  #指定文件夹（目录及下一级子目录批量替换）
  path0 =path_0+'/skin/betterprinter'

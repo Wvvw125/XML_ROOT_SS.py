@@ -723,7 +723,7 @@ class setset(object):
     print('修改完成！！！！！！！！！！！！！！^x^')
 
 if __name__ == '__main__':
- path= "I:\客户测试集\纸箱机\BetterPrinterApp_OnePass\SoftConfig"  #'E:\2.0打印软件2022年1月\G5I\SoftConfig'  # 目标文件夹
+ path= "C:\\Users\\⑤※※\Desktop\Onepass (2)"  #'E:\2.0打印软件2022年1月\G5I\SoftConfig'  # 目标文件夹
    #加载目录F:\售后体系库\……【客户软件库】……\V2.0平台\自动修改
  os.chdir(path)
  f_name=main(path).find_name(path)
