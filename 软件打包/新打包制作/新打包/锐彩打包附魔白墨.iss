@@ -196,4 +196,5 @@ end;
 [UninstallDelete]
 Type: files; Name: "{app}\UltraPrint.url"
 ;Type: filesandordirs; Name: "{app}"
+Type: filesandordirs; Name: "{app}"
 
