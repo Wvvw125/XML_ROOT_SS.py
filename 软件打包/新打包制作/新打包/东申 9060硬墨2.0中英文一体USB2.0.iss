@@ -1,16 +1,17 @@
 #define MyAppName "BetterPrinterApp"                                       ;运行程序名
-#define MyAppPublisher "东申彩印"                    ;发布者
-#define MyAppVersion "2.0.0.0.|.1.0.0.67"                                      ;版本号    2.0.0.0._.1.0.0.47
-#define MyAppExeName "BetterPrinterApp.exe"                           ;运行程序
-#define OutPutName " BetterPrinterApp_TX800_5060_4C_WO_1.0.0.67"            ;输出文件名
+#define MyAppPublisher "柯翔"                    ;发布者
+#define MyAppVersion "2.0.0.0.|.1.0.0.73"                                      ;版本号    2.0.0.0._.1.0.0.47
+#define MyAppExeName "PL-Printer.exe"                           ;运行程序
+#define OutPutName "Tx800_4H_6C_WO_1.0.0.73"            ;输出文件名
 #define AppVerName  "BetterPrinterApp 2.0"                                ;系统在组件名称
-#define DirName "D:\BetterPrinterApp_TX800_5060"                                   ;安装目录名
-#define InPutFile"F:\售后体系库\……【客户软件库】……\V2.0平台\国内\东升龙总\BetterPrinterApp_PB_4C_5060"  
+#define DirName "D:\PL-Printer_Tx800_9060"                                   ;安装目录名
+#define InPutFile "F:\售后体系库\……【客户软件库】……\V2.0平台\国内\东升龙总\PL-Printer_PB_4C_5060 - 副本"  
 #define AppHeight "420"        ;高
 #define AppWidth  "620"        ;宽
 #define DataPort  "USB2.0"         ;数据端口 
 #define SKIN_chose "1"                                   ;   [skin ]  cur=1    0     default    1 Gray         [config]  clean=Clean_6.xml
 #define Appplat "MSVBCRT AIO 2017.03.13 X86 X64.exe"  
+#define USBdevice"win10_Device 2.0.exe"     
 
 #define AppID"BetterPrinterApp 2.0"                 ;{94663D78-3A80-47FE-A474-2ED2CB91C82D}
 #define OutPutFile "D:\Publish\Result"
@@ -175,7 +176,7 @@ Root: HKA; Subkey: "Software\Classes\Applications\{#MyAppExeName}\SupportedTypes
 Root:HKLM;Subkey:"Software\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall";ValueType: string; ValueName: "{#AppID}";ValueData:"{app}\ {#MyAppName}.exe";Flags: uninsdeletevalue
 
 [Run]
-Filename: "{app}\usb device\Device 2.0.exe"; Flags: waituntilterminated;
+Filename: "{app}\usb device\{#USBdevice}"; Flags: waituntilterminated;
 Filename: "{app}\vc_package\{#Appplat }"; Flags: waituntilterminated;Check:Isx64
 ;Filename: "{app}\更新说明.txt"; Description: "更新说明"; Flags: postinstall shellexec skipifsilent
 
@@ -249,7 +250,7 @@ end;
 //关于
 procedure AboutButtonOnClick(Sender: TObject);
 begin
-MsgBox('欢迎您使用由⑤制作的程序，该程序来自北印智能）', mbInformation, mb_Ok);
+MsgBox('欢迎您使用由⑤制作的程序，该程序来自china', mbInformation, mb_Ok);
 end;
 
 //水波纹
@@ -280,6 +281,8 @@ result:=true;
 if PageID=wpSelectComponents then
 result:=true;
 if PageID=wpSelectProgramGroup then
+result:=true;
+if PageID=wpLicense then
 result:=true;
 end;
 //wpWelcome|欢迎页, wpLicense|协议页, wpPassword|密码页, wpInfoBefore, wpUserInfo,wpSelectDir|安装目录,wpSelectComponents|组件页, 
