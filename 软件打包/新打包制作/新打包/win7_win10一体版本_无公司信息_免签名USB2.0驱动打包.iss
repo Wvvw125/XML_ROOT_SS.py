@@ -83,6 +83,17 @@ begin
 		 //win10
 		 if(Version.Major=10)and(Version.Minor=0) then
 		 begin
+		       if(IsWin64)then                                                      1
+					  begin
+					      Result:='WIN10_64';
+					  end
+						else
+					      Result:='WIN10_32';
+					  Exit;
+			end;
+					 //win11
+		 if(Version.Major=20)and(Version.Minor=0) then
+		 begin
 		       if(IsWin64)then
 					  begin
 					      Result:='WIN10_64';
@@ -91,7 +102,6 @@ begin
 					      Result:='WIN10_32';
 					  Exit;
 			end;
-			
 			 //win7
 		 if(Version.Major=6)and(Version.Minor=1) then
 		 begin
@@ -103,6 +113,35 @@ begin
 					      Result:='WIN7_32';
 					  Exit;
 			end;
+						 //win8
+		 if(Version.Major=6)and(Version.Minor=2) then
+		 begin
+		       if(IsWin64)then
+					  begin
+					      Result:='WIN10_64';
+					  end
+						else
+					      Result:='WIN10_32';
+					  Exit;
+			end;
+						 //win8.1
+		 if(Version.Major=6)and(Version.Minor=3) then
+		 begin
+		       if(IsWin64)then
+					  begin
+					      Result:='WIN10_64';
+					  end
+						else
+					      Result:='WIN10_32';
+					  Exit;
+			end;
+						 //XP
+		 if(Version.Major=5)and(Version.Minor=10) then
+		 begin
+					      Result:='WIN7_32';
+					      Exit;
+			end;
+			Result:='OTHER';
 end   ;
 
 function Mysystemis(WinVers:String):Boolean   ;             //判别当前系统是否是指定系统的函数
