@@ -11,7 +11,7 @@ PNG3 = 'checked.png'       #指定替换文件
 import os
 import shutil
 import py7zr
-path_0='F:\售后体系库\……【客户软件库】……\V2.0平台\【版本更新列表】\发布-1.0.0.73-6' # input修改目录
+path_0='F:\售后体系库\……【客户软件库】……\V2.0平台\【版本更新列表】\发布-1.0.0.73-14' # input修改目录
 class main():
  #指定文件夹（目录及下一级子目录批量替换）
  path0 =path_0+'/skin/betterprinter'
@@ -41,10 +41,10 @@ class main():
         for d in FB:
              if d == PNG2:
                  os.chdir(path1)
-                 shutil.copy(d, path4)
+                 shutil.copy2(d, path4)
              elif d == PNG3:
                  os.chdir(path1)
-                 shutil.copy(d, path4)
+                 shutil.copy2(d, path4)
     else:
      #print(4)
      if a==PNG0:
@@ -58,10 +58,10 @@ class main():
  for b in FB:
     if b ==PNG2:
       os.chdir(path1)
-      shutil.copy(b, path)
+      shutil.copy2(b, path)
     elif b==PNG3:
       os.chdir(path1)
-      shutil.copy(b, path)
+      shutil.copy2(b, path)
  print('对勾替换完成')
  #删除logo
  for e in FE:
@@ -88,7 +88,7 @@ class main():
          F_style = os.listdir(pathstyle1)
      for i in F_style:
          os.chdir(pathstyle1)
-         shutil.copy(i,path0)
+         shutil.copy2(i,path0)
      ppstyle=pathstyle1.split( '/')[-1]
      print('界面替换为',ppstyle)
      os.chdir('F:/售后体系库/……【客户软件库】……/V2.0平台/【版本更新列表】')

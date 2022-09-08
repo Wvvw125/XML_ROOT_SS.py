@@ -10,7 +10,7 @@
 #define MyAppAssocExt ""
 #define MyAppAssocKey StringChange(MyAppAssocName, " ", "") + MyAppAssocExt
 #define Inputfile"F:\wwx\工具类\mfc140问题"
-#define OutPutName "mfc140dll修复"
+#define OutPutName "mfc140dll_MSCVP140修复"
 #define OutPutFile "D:\Publish\Result"
 
 

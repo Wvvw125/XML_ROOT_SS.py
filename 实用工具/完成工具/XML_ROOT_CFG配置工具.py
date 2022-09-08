@@ -10,6 +10,7 @@ from time import  sleep
 aa ='alias'
 vv ='value'
 nname='name'
+k='0'
 class main(object):
 
  def __init__(self,path):
@@ -108,38 +109,40 @@ class main(object):
 
      def O(self):
          while True:
-             for num in range(0, 16):
+             for num in range(0, len(root[1])):
                  root[1][7][num].set(vv, '0')
              break
          print('白边模式置0完成：', root[1][7][0].attrib[aa],root[1][7][0].attrib[vv])
 
      def color(self):
-        if root[1][12].attrib[nname]=='BP_CUT_INK_CONFIG':
-         for a in range(0, 16):
-             color_List = root[1][12][2][a]
-             color_List.set(vv, '100')  # 截墨墨量-修改键值
-         print('截墨，墨量显示：', root[1][12][2][15].attrib[vv])
-         # 墨量修改   [1][12][2][a]
-         # 1  [1]   ''<group name="BP_COMMON_CONFIG" alias="打印通用配置">    第二级   第二个配置
-         # 2  [12]                                                          第三级   第十三个配置
-         # 3  [2]                                                           第四级   第三个配置
-         # 4  [a]                                                           第五级   第a配置
-        else:
-         print(root[1][12].attrib[aa],'配置错误，更新后尝试')
-         sleep(5)
+        for i in range(0,len(root[1])):
+            if root[1][i].attrib[nname]=='BP_CUT_INK_CONFIG':
+                 for a in range(0, 16):
+                     color_List = root[1][i][2][a]
+                     color_List.set(vv, '100')  # 截墨墨量-修改键值
+                 print('截墨，墨量显示：', root[1][i][2][15].attrib[vv])
+                 # 墨量修改   [1][12][2][a]
+                 # 1  [1]   ''<group name="BP_COMMON_CONFIG" alias="打印通用配置">    第二级   第二个配置
+                 # 2  [12]                                                          第三级   第十三个配置
+                 # 3  [2]                                                           第四级   第三个配置
+                 # 4  [a]                                                           第五级   第a配置
+            else:
+              pass
+              print(root[1][i].attrib[aa],'配置错误，更新后尝试')
+
      def Oset_clibration(self):
-      if root[1][13].attrib[nname] == 'BP_CORRECT_PRINT_CONFIG':
-        for a in range(0,3):
-         root[1][13][a].set(vv, '0')
-         for b in range(0,3):
-          root[1][13][3][a][b].set(vv,'0')
-          root[1][13][4][a][b].set(vv,'0')
-        print('横向校准：归零', root[1][13][3][0][0].attrib[aa],root[1][13][3][0][0].attrib[vv])
-        print('纵向校准：归零', root[1][13][4][0][0].attrib[aa],root[1][13][4][0][0].attrib[vv])
-        print('微调校准：归零', root[1][13][0].attrib[aa],root[1][13][0].attrib[vv])
-      else:
-          print(root[1][13].attrib[aa],'配置错误，更新后尝试')
-          sleep(5)
+         for i in range (0,len(root[1])):
+              if root[1][i].attrib[nname] == 'BP_CORRECT_PRINT_CONFIG':
+                for a in range(0,3):
+                 root[1][i][a].set(vv, '0')
+                 for b in range(0,3):
+                  root[1][i][3][a][b].set(vv,'0')
+                  root[1][i][4][a][b].set(vv,'0')
+                print('横向校准：归零', root[1][i][3][0][0].attrib[aa],root[1][i][3][0][0].attrib[vv])
+                print('纵向校准：归零', root[1][i][4][0][0].attrib[aa],root[1][i][4][0][0].attrib[vv])
+                print('微调校准：归零', root[1][i][0].attrib[aa],root[1][i][0].attrib[vv])
+              else:
+                  pass
  # 2 喷头参数配置
  class head_cfg():
      def __init__(self):
@@ -679,13 +682,13 @@ class setset(object):
     #    tree = Root[1]
     #    xml_file = Root[2]  # #格式化数据 #数据化   #文件名
     print("===========================开始修改=======================================")
-  #  Run.face_display().set_colo_op()  # 墨量 显示
-  #  Run.print_cfg().color()           # 截墨 墨量 100
- #   Run.clean_cfg().Autoclean()       # 自动清洗归 0
+    Run.face_display().set_colo_op()  # 墨量 显示
+    Run.print_cfg().color()           # 截墨 墨量 100
+    Run.clean_cfg().Autoclean()       # 自动清洗归 0
   #  Run.speed_cfg().setMotorfomartting() #XYZ速度标准化
    # Run.speed_cfg().setfomartting()  # 格式化 墨栈 刮片速度
-   # Run.face_display().set_colo_InkCount()  #墨量体积
-   # Run.face_display().set_InkCountColor()  #墨量 PRN 色续
+    Run.face_display().set_colo_InkCount()  #墨量体积
+    Run.face_display().set_InkCountColor()  #墨量 PRN 色续
   #  Run.clean_cfg().CleanActionSetFomartting()#格式化清洗参数位置
    # Run.board_cfg().setRam()                  #板卡内存设置
   #  Run.board_cfg().setSupportHead()          #板卡支持喷头数量
@@ -693,12 +696,12 @@ class setset(object):
     print("++++++++++++++++++++++++++++以上为默认设置+++++++++++++++++++++++++++++++++")
    # Run.face_display().O()   # 显示模式归0
   #  Run.print_cfg().O()      # 白边模式归零
-  #  Run.head_cfg().Oset_HeadOne_0()  # 所有喷头设置 为1号头数据
+    Run.head_cfg().Oset_HeadOne_0()  # 所有喷头设置 为1号头数据
    # Run.head_cfg().Oset_HeadOneTWO_0()     #所有喷头按照1  2喷头标准循环设置
  #   Run.head_cfg().SetuseHeadNNNNN()        #更改喷头装配方向
     Run.head_cfg().Oset_NunHead400_O(3,8)  #归零 第几个喷头参数（5-8）
   #  Run.head_cfg().SetuseHeadnum(2)      # 设置实际使用喷头数量
-  #  Run.print_cfg().Oset_clibration()    # 双向步进校准归零1
+    Run.print_cfg().Oset_clibration()    # 双向步进校准归零1
   #  Run.action_cfg().O()  # 动作设置归零
 # Run.board_cfg().Maxtrip()  # 最大行程设置
   #  Run.system_cfg().O()     # USB
@@ -724,7 +727,7 @@ class setset(object):
     print('修改完成！！！！！！！！！！！！！！^x^')
 
 if __name__ == '__main__':
- path= "F:\售后体系库\……【客户软件库】……\V2.0平台\国外\孟加拉DOLPHIN\BetterPrinterApp\SoftConfig"  #'E:\2.0打印软件2022年1月\G5I\SoftConfig'  # 目标文件夹
+ path= "I:\客户测试集\新建文件夹 (2)\BetterPrinterApp_TX800\SoftConfig"  #'E:\2.0打印软件2022年1月\G5I\SoftConfig'  # 目标文件夹
    #加载目录F:\售后体系库\……【客户软件库】……\V2.0平台\自动修改
  os.chdir(path)
  f_name=main(path).find_name(path)

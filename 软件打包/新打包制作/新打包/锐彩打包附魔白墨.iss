@@ -4,10 +4,11 @@
 #define URL ""
 #define  AppName"UltraPrint"
 #define   VerName"UltraPrint"        ;系统在组件名称
-#define   AppPublisher"江榕科技"  ;发布者
-#define   OutPutName"7色锐彩+W_test";输出文件名
-#define  InPutFile"F:\售后体系库\……【客户软件库】……\V1.1平台\国内\墙体机江榕科技（张磊）\北印7色白彩地面机软件\UltraPrint0912"
-#define  Version"6C_W"
+#define   AppPublisher""  ;发布者
+#define   OutPutName"UltraPrint _W_CN";输出文件名
+#define  InPutFile"F:\锐彩\UltraPrint(各种精度)"
+#define  Version"_W"
+#define IconFile 'F:\wwx\制作\打包素材\ico\REDMs.ICO'            ;REDMs.ICO        ,  BLUEMs.ICO
 
 [Setup]
 AppName={#AppName}
@@ -22,6 +23,7 @@ DefaultGroupName=UltraPrint
 ;InfoBeforeFile=F:\Publish\UltraPrint\License\CN\Readme.txt
 OutputDir=D:\Publish\Result
 OutputBaseFilename={#OutPutName}
+SetupIconFile =  {#IconFile}
 //安装程序将不显示“欢迎”向导页 ,设置为 yes
 DisableWelcomePage  = no
 
@@ -35,6 +37,8 @@ Name: "quicklaunchicon"; Description: "{cm:CreateQuickLaunchIcon}"; GroupDescrip
 
 [Files]
 Source: "{#InPutFile}\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "{#IconFile}"; DestDir: "{win}\URAPPico"; Flags: ignoreversion recursesubdirs createallsubdirs
+
 ;win（带有白墨选项）  注册列表打开Enable
 Source: "C:\WINDOWS\hsu\lib\*"; DestDir: "{win}\hsu\lib"; Flags: ignoreversion
 Source: "C:\WINDOWS\hsu\Resource\CMap\*"; DestDir: "{win}\hsu\Resource\CMap"; Flags: ignoreversion
@@ -59,7 +63,7 @@ Name: "{group}\UltraPrint.exe"; Filename: "{app}\UltraPrint.exe"; WorkingDir: "{
 Name: "{group}\UltraPrint.chm"; Filename: "{app}\UltraPrint.chm"
 Name: "{group}\{cm:ProgramOnTheWeb,UltraPrint}"; Filename: "{app}\UltraPrint.url"
 Name: "{group}\{cm:UninstallProgram,UltraPrint}"; Filename: "{uninstallexe}"
-Name: "{userdesktop}\锐彩7C.exe"; Filename: "{app}\UltraPrint.exe"; WorkingDir: "{app}"; Tasks: desktopicon
+Name: "{userdesktop}\UltraPrint_W.exe"; Filename: "{app}\UltraPrint.exe"; WorkingDir: "{app}"; Tasks: desktopicon
 Name: "{userappdata}\Microsoft\Internet Explorer\Quick Launch\UltraPrint.exe"; Filename: "{app}\UltraPrint.exe"; WorkingDir: "{app}"; Tasks: quicklaunchicon
 
 [Registry]
