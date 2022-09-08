@@ -52,56 +52,48 @@ class main(object):
 
      def set_colo_op(self):
          while True:
-            if root[0][11][0].attrib[nname]=='nInkCheckColor_0':
-             root[0][11][0].set(vv, '0')
-             root[0][11][1].set(vv, '1')
-             root[0][11][2].set(vv, '2')
-             root[0][11][3].set(vv, '3')
-             root[0][11][4].set(vv, '4')
-             root[0][11][5].set(vv, '5')
-             root[0][11][6].set(vv, '6')
-             root[0][11][7].set(vv, '7')
-             break
-            else:
-             print(root[0][11][0].attrib[aa],'配置错误，！请停止更新后尝试')
-             sleep(5)
+           for i in  range(0,len(root[0])):
+             if root[0][i].attrib[nname]=='nInkCheckColor':
+                for k in range(0,len(root[0][i])):
+                     root[0][i][k].set(vv,str(k))
+                break
+             else:
+               pass
+           break
          print('墨量显示：修改完成：')
 
      def set_colo_InkCount(self):
          while True:
-             if root[0][12].attrib[nname] == 'dbInkCount':
-                for a in range(0,len(root[0][12])):
-                 root[0][12][a][0].set(vv,'0.000659557')
-                 root[0][12][a][1].set(vv,'0.000942226')
-                 root[0][12][a][2].set(vv,'0.001601783')
-                break
-             else:
-                 print(root[0][12].attrib[aa], '配置错误，！请停止更新后尝试')
-                 sleep(5)
-         print('墨点体积：修改完成：')
+             for i in  range(0,len(root[0])):
+                     if root[0][i].attrib[nname] == 'dbInkCount':
+                        for a in range(0,len(root[0][i])):
+                         root[0][i][a][0].set(vv,'0.000659557')
+                         root[0][i][a][1].set(vv,'0.000942226')
+                         root[0][i][a][2].set(vv,'0.001601783')
+                         break
+                     else:
+                         pass
+             print('墨点体积：修改完成：')
+             break
+
      def set_InkCountColor(self):
-         while True:
-             if root[0][13].attrib[nname] == 'nInkCountColor':
-                 root[0][13][0].set(vv, '0')
-                 root[0][13][1].set(vv, '1')
-                 root[0][13][2].set(vv, '2')
-                 root[0][13][3].set(vv, '3')
-                 root[0][13][4].set(vv, '4')
-                 root[0][13][5].set(vv, '5')
-                 root[0][13][6].set(vv, '6')
-                 root[0][13][7].set(vv, '4')
-                 root[0][13][8].set(vv, '5')
-                 root[0][13][9].set(vv, '6')
-                 root[0][13][10].set(vv, '4')
-                 root[0][13][11].set(vv, '5')
-                 root[0][13][12].set(vv, '6')
-                 root[0][13][13].set(vv, '7')
-                 root[0][13][14].set(vv, '8')
-                 break
-             else:
-                 print(root[0][13].attrib[aa], '配置错误，！请停止更新后尝试')
-                 sleep(5)
-         print('PRN墨量色续显示：修改完成：')
+        for i in range(0,len(root[0])):
+                     if root[0][i].attrib[nname] == 'nInkCountColor':
+                         for k in range(0,len(root[0][i])):
+                             if  k<=6:
+                                 root[0][i][k].set(vv, str(k))
+                             elif 6<k<=9:
+                                 root[0][i][k].set(vv, str(k-3))
+                             elif 9<k<=13:
+                                 root[0][i][k].set(vv, str(k-6))
+                             else:
+                                 pass
+                     else:
+                       pass
+                     print('PRN墨量色续显示：修改完成：')
+
+
+
  # 1 打印参数配置
  class print_cfg():
      def __init__(self):
@@ -128,7 +120,7 @@ class main(object):
                  # 4  [a]                                                           第五级   第a配置
             else:
               pass
-              print(root[1][i].attrib[aa],'配置错误，更新后尝试')
+
 
      def Oset_clibration(self):
          for i in range (0,len(root[1])):
