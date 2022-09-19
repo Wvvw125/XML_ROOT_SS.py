@@ -6,7 +6,6 @@
       <sourceFolder url="file://$MODULE_DIR$/实用工具/操作xml/XML_CCC" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/爬虫" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/venv/Lib" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/实用工具/完成工具" isTestSource="false" />
     </content>
     <orderEntry type="jdk" jdkName="Python 3.10" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />

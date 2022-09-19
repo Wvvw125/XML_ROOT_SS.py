@@ -1,6 +1,7 @@
 # 执行机构：At home at college
 # 出 品 人：🌫⭐※
 # 开发时间:2022/2/10 13:56
+# -*- coding: utf-8 -*-
 # post  请求（携带了参数）
 # 响应数据是一组 jason 数据
 import xml.etree.ElementTree as ET
@@ -91,14 +92,21 @@ class main(object):
                      self.add_1(num1,num2)
                      num3=len(root[num1][num2])-1
                      root[num1][num2][num3].set('id',wanttolang)
-                     translation_date=self.translate(root[num1][num2][0].attrib['text'],wanttolang)
-                     root[num1][num2][num3].set('text', translation_date)
-                     print('完成翻译：',translation_date)
+                     text_date=root[num1][num2][0].attrib['text']
+                     text_date2 = text_date.split('}')[-1]
+                     text_date3 = text_date.split(text_date2)[0]
+                     if  '}' in text_date:
+                         translation_date = self.translate(text_date2, wanttolang)
+                         root[num1][num2][num3].set('text',text_date3+translation_date)
+                     else:
+                         translation_date=self.translate(text_date,wanttolang)
+                         root[num1][num2][num3].set('text',translation_date)
+                     print('完成翻译：',text_date)
      def pprint(self):
          pass
        #  print(root[1][0].__len__())
- # 追加头文件
 
+ # 追加头文件
  def update_xml(self):
      out = open(xml_file, 'wb')
      out.write(b'<?xml version="1.0" encoding="UTF-8" standalone = "yes" ?>\n')
@@ -116,7 +124,7 @@ class setset(object):
     #    tree = Root[1]
     #    xml_file = Root[2]  # #格式化数据 #数据化   #文件名
     print("===========================开始修改=======================================")
-    Run.add_langue().add_content('pt') #翻译
+    Run.add_langue().add_content('ara') #翻译    报错  de   spa   fra
     #Run.add_langue().pprint()
     print("++++++++++++++++++++++++++++以上为默认设置+++++++++++++++++++++++++++++++++")
 

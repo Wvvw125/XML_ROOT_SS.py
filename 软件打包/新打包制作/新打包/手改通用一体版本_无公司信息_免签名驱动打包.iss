@@ -3,7 +3,7 @@
 #define MyAppVersion "2.0.0.0._.3.0"                                                     ;版本号    2.0.0.0._.1.0.0.37
 #define OutPutName " test_Device"                       ;输出文件名
 #define AppVerName  "BetterPrinter Drive USB2.0_3.0  "                     ;系统在组件名称
-#define InPutFile"F:\售后体系库\USB驱动\源文件\官方驱动"                                ;输入文件目录
+#define InPutFile"F:\驱动测试\cesxiugai\USB3.0"                                ;输入文件目录
 #define AppHeight "420"             ;高
 #define AppWidth  "620"             ;宽
 #define DataPort  "USB3.0"         ;数据端口 
@@ -59,12 +59,12 @@ Source: PlugIn\callnsis.dll; Flags: dontcopy
 Source: PlugIn\AdvSplash.dll; Flags: dontcopy
 
 
-Source: "{#InPutFile}\x64\cyusb3.sys"; DestDir: "{syswow64}\drivers"; Flags: ignoreversion ;Check:IsX64
-Source: "{#InPutFile}\x64\WdfCoinstaller01011.dll"; DestDir: "{syswow64}"   ;Check:IsX64
-Source: "{#InPutFile}\x64\cyusb3.inf"; DestDir: "{win}\INF"; Flags: ignoreversion                        ;Check:IsX64
-Source: "{#InPutFile}\x64\cyusb3.cat"; DestDir: "{win}"; Flags: ignoreversion   ;Check:IsX64
+//Source: "{#InPutFile}\x64\cyusb3.sys"; DestDir: "{sys}\drivers";Check:IsX64
+//Source: "{#InPutFile}\x64\WdfCoinstaller01011.dll"; DestDir: "{sys}"   ;Check:IsX64
+//Source: "{#InPutFile}\x64\cyusb3.inf"; DestDir: "{win}\INF"; Flags: ignoreversion                        ;Check:IsX64
+//Source: "{#InPutFile}\x64\cyusb3.cat"; DestDir: "{win}"; Flags: ignoreversion   ;Check:IsX64
 
- Source: "{#InPutFile}\x64\*"; DestDir: "{sys}\DriverStore\FileRepository\bcyusb0101"; Flags: ignoreversion ;Check:IsX64
+ Source: "{#InPutFile}\x64\*"; DestDir: "{sys}" ;Check:IsX64
 
 
 Source: "{#InPutFile}\x86\cyusb3.sys"; DestDir: "{sys}\drivers"; Flags: ignoreversion ;Check:IsX86
@@ -86,7 +86,8 @@ Source: "{#InPutFile}\x86\cyusb3.cat"; DestDir: "{win}"; Flags: ignoreversion   
 //Filename: "{#DirName}\win7\x64\DPInst64.exe";Parameters:"/sw /se"; Flags: waituntilterminated;Check:Mysystemis('WiN7_64')            // 无弹窗模式
 //Filename: "{#DirName}\x86\DPInst32.exe";Flags: waituntilterminated;Check:IsX86
 //Filename: "{#DirName}\x64\DPInst64.exe"; Flags: waituntilterminated;Check:IsX64
-Filename: "{syswow64}\rundll32.exe";parameters:"setupapi.dll,InstallHinfSection DefaultInstall {sys}\DriverStore\FileRepository\bcyusb30101\cyusb3.inf"
+Filename: "{sys}\rundll32.exe";parameters:"setupapi.dll,InstallHinfSection CYUSB3.NT  {sys}\cyusb3.inf"       
+
 
 
 [Code]
